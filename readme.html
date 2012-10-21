@@ -1,0 +1,172 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+<script src="jquery.externallinks.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('body').externalLinks();
+});
+</script>
+<style>
+
+body {
+	font-family: arial;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 40px;
+}
+
+h1, h2 {
+    font-family: georgia, serif;
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 5px; 
+    border-bottom: 1px solid #ddd;
+}
+
+h1 { 
+    width: 60%;
+    border-bottom: 2px solid #ddd; 
+    margin: 40px auto;
+}
+
+h4 {
+    text-align: center;
+}
+
+.extlink {
+	margin-left: 2px;
+}
+
+table {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 18px 10px;
+    text-align: left;
+    vertical-align: top;
+    margin: 0;
+} 
+
+th {
+    padding: 8px 10px;
+    background-color: #DDD;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+</style>
+</head>
+<body>
+
+
+<div style="width: 600px; margin: auto">
+
+<h1>ExternalLinks</h1>
+
+<p>This plugin appends an image link to the end of any external links in your content and gives you complete control over it's look and behaviour.</p> 
+<p>The link target, image, image dimensions, class and title can be changed by passing in your own settings, see the options and examples sections for details.</p>
+
+<h2>Usage</h2>
+
+<ol>
+    <li>Add a script reference to both <a href="http://jquery.com">jQuery</a> and externalLinks javascript files.</li>
+    <li>Add an external script or inline script calling jQuery, passing in your selector and then calling externalLinks().</li> 
+</ol>
+<pre>
+<html>                                                                  
+&lt;html&gt;                                                                  
+ &lt;head&gt;                                                                  
+ &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;          
+ &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.externallinks.js&quot;&gt;                                         
+ &lt;script&gt;
+    $('body').externalLinks();                                     
+ &lt;/script&gt;                                                               
+ &lt;/head&gt; 
+ &lt;body&gt;
+   -- your content --  
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+
+<h2>Options</h2>
+
+<p>By default the plugin will append a 10px X 10px <a href="http://en.wikipedia.org/wiki/Data_URI_scheme">Data URI</a> image link with a class name of 'extlink' and a title of 'Open this link in a new window/tab' to any external link and the clicked link opens in a new tab or window depending on the browser preferences. 
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Details</th>
+        <th>Default</th>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>Target window for the link.<br/> e.g. _self, _blank, _top etc.</td>
+        <td>_blank</td>
+    </tr>
+    <tr>
+        <td>image</td>
+        <td>The image to display, can be either a data URI or path to an image file.</td>
+        <td>data uri (IE8+)</td>
+    </tr>
+    <tr>
+        <td>imageWidth</td>
+        <td>Width in pixels of the link image.<br/>Whole numbers only</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>imageHeight</td>
+        <td>Height in pixels of the link image.<br/>Whole numbers only</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>className</td>
+        <td>Name to add to the class attribute (leave blank for no class attribute).</td>
+        <td>extlink</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>Tooltip text to display on mouse over.</td>
+        <td>Open this link in a new window/tab</td>
+    </tr>
+    
+</table>
+
+<h2>Examples</h2>
+
+<p>Defaults settings</p>
+
+<pre>
+$(document).ready(function() {
+    $('body').externalLinks();
+});
+</pre>
+
+<p>Open external links in this window, use a relative image file of size 8px X 8px. Use a class name of 'external-link' and don't set a title attribute.</p>
+<pre>
+$(document).ready(function() {
+    $('body').externalLinks({
+        target      : '_self',
+    	image       : '/images/extlink.png',
+    	imageWidth  : '8',
+    	imageHeight : '8',  
+    	className   : 'external-link',
+    	title       : ''	
+    });
+});
+</pre>
+
+<h2>Demo</h2>
+
+<p>All of the external links in this document use the default settings.</p>
+
+<h4><a href="http://onemanandhismouse.com">onemanandhismouse.com</a></h4>
+
+</body>
+</html>
